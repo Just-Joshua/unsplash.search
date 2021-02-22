@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body,
+.container {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 100vh;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: 100vw;
+}
+
+form h1 {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+form input {
+  background-color: rgba(196, 196, 196, 0.74);
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+  height: 3rem;
+  border: none;
+  outline: none;
+  border-radius: 300px;
+  font-size: 24px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 5px #000;
+          box-shadow: 0 0 5px #000;
+}
+
+.imgForeground {
+  padding-top: 2.5rem;
+}
+
+.result {
+  min-width: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-top: 5rem;
+}
+
+.result .resultDiv,
+.result div {
+  display: inline-block;
+  height: 400px;
+  width: 300px;
+  margin-bottom: 3rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  -webkit-box-shadow: 0px 0px 10px rgba(102, 102, 102, 0.5);
+          box-shadow: 0px 0px 10px rgba(102, 102, 102, 0.5);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.result .resultDiv:hover,
+.result div:hover {
+  -webkit-box-shadow: 0px 0px 20px rgba(102, 102, 102, 0.5);
+          box-shadow: 0px 0px 20px rgba(102, 102, 102, 0.5);
+}
+
+#loader {
+  height: 100vh;
+  background: rgba(196, 196, 196, 0.75);
+  padding-top: 45vh;
+}
+
+.lds-dual-ring {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}
+
+.lds-dual-ring:after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid black;
+  border-color: black transparent black transparent;
+  -webkit-animation: lds-dual-ring 1.2s linear infinite;
+          animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@-webkit-keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */
