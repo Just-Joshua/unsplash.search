@@ -63,37 +63,50 @@ $(() => {
         result.photos.results.forEach((element) => {
           if (searchedPreviously === false) {
             appendResult(element);
-            // searchedPreviously = true;
           } else if (searchedPreviously === true) {
             removeResult();
+            appendResult(element);
           }
           runCounter += 1;
+          // console.log(runCounter);
+          if (runCounter >= 10) {
+            searchedPreviously = true;
+            // runCounter = 0;
+          } else {
+            searchedPreviously = false;
+          }
         });
       },
     });
   };
 
   const appendResult = (element, url) => {
+    // $('.queryName')[0].value = $('input')[0].value;
+    // clear input
+    $('input')[0].value = '';
+    console.log(element);
+
     let resultUrl = element.urls.regular;
     $('.result').append(`
           <div class="resultDiv${runtime} searchResult"><div>
       `);
     $(`.resultDiv${runtime}`).css({
       'background-image': `url(${resultUrl})`,
+      height: `${element.height / 12}px`,
+      width: `400px`,
     });
+    console.table(element.height, element.width);
 
     runtime += 1;
   };
 
   const removeResult = (e) => {
     $('.searchResult').remove();
-    console.log('I work');
   };
 
   $('form').submit(function (e) {
     e.preventDefault();
     let inputValue = $('input')[0].value;
-    // console.log(inputValue);
     apiSearch(inputValue);
   });
 
