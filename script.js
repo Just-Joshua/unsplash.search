@@ -60,6 +60,8 @@ $(() => {
       success: (result) => {
         $('.imgForeground').css('backdrop-filter', 'blur(10px)');
         $('.result').show();
+        console.log(input);
+        $('.queryName')[0].innerHTML = input.toUpperCase();
         result.photos.results.forEach((element) => {
           if (searchedPreviously === false) {
             appendResult(element);
@@ -81,10 +83,8 @@ $(() => {
   };
 
   const appendResult = (element, url) => {
-    // $('.queryName')[0].value = $('input')[0].value;
-    // clear input
+    // Clears Input
     $('input')[0].value = '';
-    console.log(element);
 
     let resultUrl = element.urls.regular;
     $('.result').append(`
@@ -95,7 +95,7 @@ $(() => {
       height: `${element.height / 12}px`,
       width: `400px`,
     });
-    console.table(element.height, element.width);
+    // console.table(element.height, element.width);
 
     runtime += 1;
   };
@@ -107,7 +107,11 @@ $(() => {
   $('form').submit(function (e) {
     e.preventDefault();
     let inputValue = $('input')[0].value;
-    apiSearch(inputValue);
+    if (inputValue !== '') {
+      apiSearch(inputValue);
+    } else {
+      console.log('Search Input is empty');
+    }
   });
 
   startApi();

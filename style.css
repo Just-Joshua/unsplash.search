@@ -18,13 +18,16 @@ body,
   width: 100vw;
 }
 
-form h1 {
+form a {
   text-align: center;
   font-family: "Lato", sans-serif;
   margin-bottom: 1rem;
   text-transform: uppercase;
   font-size: 36px;
   font-weight: 700;
+  display: block;
+  color: black;
+  text-decoration: none;
 }
 
 form input {
@@ -49,7 +52,7 @@ form input {
 .result {
   min-width: 80vw;
   width: 100vw;
-  margin: 0 5vw;
+  padding: 0 5vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,27 +90,35 @@ form input {
           transform: scale(1.02);
 }
 
+.result .queryName {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  font-size: bold;
+}
+
 #loader {
   height: 100vh;
   background: rgba(196, 196, 196, 0.75);
   padding-top: 45vh;
 }
 
-.lds-dual-ring {
+.loading {
   display: block;
   width: 100px;
   height: 100px;
   margin: auto;
 }
 
-.lds-dual-ring:after {
+.loading::after {
   content: ' ';
   display: block;
   width: 64px;
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid black;
+  border: 6px solid #000000;
   border-color: black transparent black transparent;
   -webkit-animation: lds-dual-ring 1.2s linear infinite;
           animation: lds-dual-ring 1.2s linear infinite;
