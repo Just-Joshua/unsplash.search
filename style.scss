@@ -7,7 +7,7 @@ $lato: 'Lato', sans-serif;
 }
 body,
 .container {
-  // background: url(./germa.jpg);
+  background: url(./asset/bg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -52,7 +52,7 @@ form {
 }
 
 .result {
-  //   background: rgba(131, 33, 33, 0.527);
+  // background: rgba(131, 33, 33, 0.527);
   min-width: 80vw;
   width: 100vw;
   padding: 0 5vw;
@@ -60,7 +60,7 @@ form {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
-  padding-top: 2.5rem;
+  padding-top: 1.25rem;
   .searchResult {
     display: inline-block;
     height: 400px;
@@ -79,7 +79,7 @@ form {
   }
   .queryName {
     text-align: center;
-    margin: 0 auto;
+    margin: 0.625rem auto;
     width: 100%;
     font-family: $lato;
     font-size: bold;
@@ -107,9 +107,9 @@ form {
   border-radius: 50%;
   border: 6px solid #000000;
   border-color: rgb(0, 0, 0) transparent rgb(0, 0, 0) transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+  animation: loadingAnimation 1.2s linear infinite;
 }
-@keyframes lds-dual-ring {
+@keyframes loadingAnimation {
   0% {
     transform: rotate(0deg);
   }
