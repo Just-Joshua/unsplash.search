@@ -1,11 +1,4 @@
 $(() => {
-  // $('.container').css({
-  //   background: `url("https://images.unsplash.com/photo-1595053863958-f966040f6eed?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=668&q=80")`,
-  //   'background-position': 'center',
-  //   'background-repeat': 'no-repeat',
-  //   'background-size': '100%',
-  // });
-
   let hasApiRun = false;
   let endpoint = 'https://api.unsplash.com/search/?page=1';
   let apikey = 'vSAXAyLMNEm0XpKTMGIXqYjsNa6wSV3fAdbKclFjQWQ';
@@ -20,37 +13,28 @@ $(() => {
       url: `${endpoint}&query=white&client_id=${apikey}&per_page=30&orientation=${orientation}`,
       contentType: 'application/json',
       success: (result) => {
-        applyBG(result);
         hasApiRun = true;
-        loadContent();
       },
     });
-    loadContent();
   };
+  // const applyBG = (e) => {
+  //   $('.container').css({
+  //     background: `url("./asset/lofiGirl.png")`,
+  //     'background-position': 'center',
+  //     'background-repeat': 'no-repeat',
+  //     'background-size': '100%',
+  //     'min-height': '100vh',
+  //     height: 'max-content',
+  //   });
+  //   loadContent();
+  // };
 
-  const applyBG = (e) => {
-    let bgUrl = e.photos.results[Math.floor(Math.random() * 30)].urls.regular;
-    $('.container').css({
-      background: `url("${bgUrl}")`,
-      'background-position': 'center',
-      'background-repeat': 'no-repeat',
-      'background-size': '100%',
-      'min-height': '100vh',
-      height: 'max-content',
-    });
-  };
-
-  const loadContent = () => {
-    if (hasApiRun == true) {
-      $('#loader').hide();
-      $('.container').show();
-      // $('.result').hide();
-    } else {
-      $('#loader').show();
-      $('.container').hide();
-      // $('.result').hide();
-    }
-  };
+  // const loadContent = () => {
+  //   $('#loader').hide();
+  //   $('.container').show();
+  //   // $('.result').hide();
+  // };
+  // applyBG();
 
   const apiSearch = (input) => {
     runCounter = 0;
@@ -106,13 +90,31 @@ $(() => {
 
   $('form').submit(function (e) {
     e.preventDefault();
-    let inputValue = $('input')[0].value;
-    if (inputValue !== '') {
-      apiSearch(inputValue);
-    } else {
-      console.log('Search Input is empty');
-    }
+
+    // ====Temporarily commented for Testing=====
+
+    // let inputValue = $('input')[0].value;
+    // if (inputValue !== '') {
+    //   apiSearch(inputValue);
+    // } else {
+    //   console.log('Search Input is empty');
+    // }
+
+    createDivs();
   });
 
   startApi();
+  let fakerun = 0;
+  const createDivs = () => {
+    $('.result').append(`
+    <div class="searchResult fakeresult${fakerun}">${fakerun}</div>
+  `);
+    $(`.fakeresult${fakerun}`).css({
+      background: 'whitesmoke',
+      'text-align': 'center',
+      height: `${Math.floor(Math.random() * 300) + 200}px`,
+    });
+    fakerun++;
+  };
+  // jQuery end
 });
